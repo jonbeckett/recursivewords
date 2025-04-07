@@ -1,0 +1,49 @@
+---
+#
+# By default, content added below the "---" mark will appear in the home page
+# between the top bar and the list of recent posts.
+# To change the home page layout, edit the _layouts/home.html file.
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+#
+layout: home
+---
+
+<ul class="post-list">
+    {% for post in paginator.posts %}
+    <li>
+      <span class="post-meta">
+        {{ post.date | date: "%A " }}
+        {% assign day = post.date | date: "%e" %}
+        {{ day }}{% case day %}
+          {% when '1' or '21' or '31' %}st
+          {% when '2' or '22' %}nd
+          {% when '3' or '23' %}rd
+          {% else %}th
+        {% endcase %}
+        {{ post.date | date: " %B %Y" }}
+      </span>
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      {%- if site.minima.show_excerpts -%}
+        {{ post.excerpt }}
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+</ul>
+
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+  {% else %}
+    <span class="previous disabled">Previous</span>
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+  {% else %}
+    <span class="next disabled">Next</span>
+  {% endif %}
+</div>
