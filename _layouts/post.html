@@ -12,8 +12,7 @@ layout: base
       <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
         {{ pdate | date: "%A " }}
         {% assign day = pdate | date: "%e" %}
-        {{ day }}
-        {% case day %}
+        {{ day }}{% case day %}
           {% when '1' or '21' or '31' %}st
           {% when '2' or '22' %}nd
           {% when '3' or '23' %}rd
