@@ -63,6 +63,7 @@ minima:
 #     the order they should be rendered.
   nav_pages:
     - about.md
+    - contact.md
 #
 #   Set to `true` to show excerpts on the homepage.
   show_excerpts: true
