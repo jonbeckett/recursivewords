@@ -79,6 +79,12 @@ minima:
 #       * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
 #       * url      Full URL of social profile.
   social_links:
+    - title: Bluesky
+      icon: bluesky
+      url: "https://bsky.app/profile/jonbeckett.bsky.social"
+    - title: Threads
+      icon: threads
+      url: "https://www.threads.net/@jonbeckett"
     - title: Facebook
       icon: facebook
       url: "https://facebook.com/jonbeckett"
