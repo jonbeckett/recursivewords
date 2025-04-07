@@ -10,24 +10,16 @@ layout: base
       {% assign pdate = page.date | date_to_xmlschema %}
       {%- if page.modified_date %}<span class="meta-label">Published:</span>{% endif %}
       <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
-        {{ pdate | date: date_format }}
+        {{ pdate | date: "%A " }}
+          {% assign day = pdate | date: "%-d" %}
+          {% case day %}
+          {% when '1' or '21' or '31' %}st
+          {% when '2' or '22' %}nd
+          {% when '3' or '23' %}rd
+          {% else %}th
+          {% endcase %}
+        {{ pdate | date: " %B %Y" }}
       </time>
-      {%- if page.modified_date -%}
-        <span class="bullet-divider">•</span>
-        <span class="meta-label">Updated:</span>
-        {%- assign mdate = page.modified_date | date_to_xmlschema %}
-        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
-          {{ page.date | date: "%A " }}
-            {% assign day = page.date | date: "%-d" %}
-            {% case day %}
-            {% when '1' or '21' or '31' %}st
-            {% when '2' or '22' %}nd
-            {% when '3' or '23' %}rd
-            {% else %}th
-            {% endcase %}
-          {{ page.date | date: " %B %Y" }}
-        </time>
-      {%- endif -%}
     </div>
   </header>
 
