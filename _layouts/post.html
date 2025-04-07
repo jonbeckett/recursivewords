@@ -11,8 +11,8 @@ layout: base
       {%- if page.modified_date %}<span class="meta-label">Published:</span>{% endif %}
       <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
         {{ pdate | date: "%A " }}
-        {{ pdate | date: "%-e" }}  
-        {% assign day = pdate | date: "%-d" %}  
+        {{ pdate | date: "%e" }}  
+        {% assign day = pdate | date: "%e" %}  
         {% case day %}
           {% when '1' or '21' or '31' %}st
           {% when '2' or '22' %}nd
